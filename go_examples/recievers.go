@@ -26,5 +26,5 @@ func main() {
 
 	v.Add(Vec2{3, 2})
 
-	fmt.Printf("%v, %v", v.x, v.y)
+	fmt.Printf("%v, %v\n", v.x, v.y)
 }
