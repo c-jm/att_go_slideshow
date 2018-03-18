@@ -32,6 +32,9 @@ func SayWhatTimeItIs() {
 func SqrRange(r int) []int {
 
 	var result []int
+
+	// This is a slice, its  basically a "look" into an array. You can use slices to build dynamic arrays.
+
 	result = make([]int, r)
 
 	for i := 0; i < r; i++ {
