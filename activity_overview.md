@@ -1,6 +1,7 @@
 # Activity Overview: Go and SDL
 
 
+
 # Presented By:
 
 ## Colin J. Mills
@@ -17,7 +18,7 @@ This tutorial was built to run on Ubuntu 16.04.
 
 NOTE: All packages can be installed by using the `install.sh` script int he repo.
 
-First need to add a ppa to be able to have the go runtime available to install.
+First need to add a ppa to be able to have the Go runtime available to install.
 
 `sudo add-apt-repository ppa:longsleep/golang-backports`
 
@@ -25,7 +26,7 @@ First need to add a ppa to be able to have the go runtime available to install.
 
 `sudo apt-get install golang-go`
 
-Now with go install install libsdl to be able to use SDL with Go.
+Now with Go install install libsdl to be able to use SDL with Go.
 
 `sudo apt-get install libsdl2-dev`
 
@@ -280,5 +281,6 @@ You now have a working software renderer backdrop blitter! This code can be expa
 * Building Pong.
 
 Have fun and play around with it!
+
 
 
