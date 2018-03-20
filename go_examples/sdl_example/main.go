@@ -1,3 +1,10 @@
+/*
+
+ Filename: scanner.go
+ Authors: Kyle A. Kreutzer, Colin J. Mills
+ Date: March 20th 2018
+ */
+
 package main 
 
 import "github.com/veandco/go-sdl2/sdl"
@@ -24,10 +31,10 @@ func SetPixel(x,y int,  currentColor color,  pixels []byte) {
 func main() {
 	PITCH := 4 // We have four bytes per pixel because we are using int32 
 
-
 	if err := sdl.Init(sdl.INIT_EVERYTHING); err != nil {
 		panic(err)
 	}
+
 	defer sdl.Quit()
 
 	window, err := sdl.CreateWindow("MAKING GAMES WITH GO MAN!", sdl.WINDOWPOS_UNDEFINED, sdl.WINDOWPOS_UNDEFINED,

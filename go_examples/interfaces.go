@@ -1,4 +1,13 @@
 /*
+
+ Filename: interfaces.go
+ Authors: Kyle A. Kreutzer, Colin J. Mills
+ Date: March 20th 2018
+
+ */
+
+
+/*
  * Inspired by a great example at:
  https://gobyexample.com/interfaces
 */
