@@ -12,12 +12,10 @@ import "time"
 import "fmt"
 import "net/http"
 
-//import "github.com/veandco/go-sdl2/sdl"
-
-func makeRequest(value string) {
-	_, err := http.Get(value)
+func makeRequest(url string) {
+	_, err := http.Get(url)
 	if err != nil {
-		fmt.Println(err)
+        panic(err)
 	}
 }
 

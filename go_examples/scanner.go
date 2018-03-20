@@ -18,7 +18,13 @@ import (
 func main() {
 	// An example of defer and scanner
 	FILE_NAME := "test.txt"
+
 	handle, err := os.Open(FILE_NAME)
+
+    if err != nil {
+        panic(err)
+    }
+
 	defer handle.Close()
 
 	if err != nil {

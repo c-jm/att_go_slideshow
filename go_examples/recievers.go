@@ -31,8 +31,8 @@ func (v* Vec2) Add(toAdd Vec2) {
 
 func main() {
 	v := Vec2{3, 4}
+    fmt.Printf("Length: %v\n\n", v.Length())
 
 	v.Add(Vec2{3, 2})
-
-	fmt.Printf("%v, %v\n", v.x, v.y)
+	fmt.Printf("New Vector %v, %v\n\n", v.x, v.y)
 }

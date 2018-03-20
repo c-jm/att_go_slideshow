@@ -23,7 +23,6 @@ func main() {
     *mutableMeaning = 100;
 
     fmt.Println(*mutableMeaning)
-
 }
 
 
