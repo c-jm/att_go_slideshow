@@ -37,7 +37,7 @@ Now we need to be able to instal the bindings for Go to SDL. This has been provi
 # The Meat and Potatoes
 
 
-## Step 1: Setting up a blank Go program
+## Step 0: Setting up a blank Go program
 
 The first step is to build a blank Go program.
 
@@ -280,4 +280,5 @@ You now have a working software renderer backdrop blitter! This code can be expa
 * Building Pong.
 
 Have fun and play around with it!
+
 
