@@ -1,5 +1,6 @@
 # Activity Overview: Go and SDL
 
+
 # Presented By:
 
 ## Colin J. Mills
@@ -52,6 +53,7 @@ func main() {
 
 ```
 
+
 ## Step 1: Initing SDL
 
 The first step to making an application with SDL is to init SDL with the subset of functionality that one wants. In our case we want everything. Therefore we say we want everything. Plus we want to defer the quit to make sure we do it.
@@ -64,6 +66,7 @@ The first step to making an application with SDL is to init SDL with the subset 
 
     defer sdl.Quit()
 ```
+
 
 
 ## Step 2: Opening A Window 
@@ -90,6 +93,7 @@ We then have to create the actual window, which follows the same convention as w
 ```
 
 Again we defer the destroy, this would be similar to using a free() call at the end of a C program
+
 
 ## Step 3: Creating a Renderer For the Window
 
@@ -123,7 +127,7 @@ A texture is a way for SDL to be able to accurately display pixels. We specify o
 
 Now we have to make a pixel buffer to be able to BLIT or DRAW to the screen. This will imposed over our texture which will render it in the same format as we specified (ARGB). This is why we allocate * 4 on the end of our pixel array size, to account for the actual byte size. If this was C it would be similar to something like:
 
-``` WINDOW_WIDTH * WINDOW_HIEGHT * sizeof(uint32) ```
+``` WINDOW_WIDTH * WINDOW_HEIGHT * sizeof(uint32) ```
 
 This creates a slice which you can think of as a dynamic pool of memory. An analogous to C would be a malloc(size)
 
@@ -181,7 +185,7 @@ for {
 		}
 	}
 
-	texture.Update(nil, pixels, WINDOW_WIDTH * PITCH)
+	texture.Update(nil, pixels, WINDOW_WIDTH * 4)
 	renderer.Copy(texture, nil, nil)
 	renderer.Present()
 
@@ -220,7 +224,7 @@ Get the keyboard state before the game loop.
 
 ```
 
-keyState := sdl.GetKeyboardState();
+keyboardState := sdl.GetKeyboardState();
 
 // Game Loop
 
@@ -249,8 +253,6 @@ gPressed := keyboardState[sdl.SCANCODE_G] != 0
 Now just before we draw we have to set the color appropriately determined by the button press.
 
 ```
-c := color{255}
-
 if bPressed {
     c = color{0, 0, 255}
 }
@@ -278,3 +280,4 @@ You now have a working software renderer backdrop blitter! This code can be expa
 * Building Pong.
 
 Have fun and play around with it!
+
