@@ -166,7 +166,7 @@ func SetPixel(x,y int,  currentColor color,  pixels []byte) {
 ```
 
 
-## Step 6: Setting up our basic game loop:
+## Step 7: Setting up our basic game loop:
 
 Our basic game loop  is pretty simple. We first set all of our pixels a desired color, we do this by using a loop to loop through all the pixels.   We Update our texture with the however oiur pixels have been process that time around, and then we copy the texture on to the renderer and then finally the renderer gets updated. 
 
@@ -189,15 +189,92 @@ for {
 }
 ```
 
+## Step 8: Settng Up An Event Loop
+
+Ok great, we have a white rectangle on the screen. But if you notice you can't quit out of the program at all. To make quit functional we hve to add an event loop to the "game" properly.
+
+Put this at the top of the game loop.
+
+What this does is tell SDL to respect events and when a quit event is encountered. As we will see in a minute it also triggers keyboard input.
+
+```
+    // Events 
+    for  e := sdl.PollEvent(); e != nil; e = sdl.PollEvent() {
+        switch e.(type) {
+
+        case *sdl.QuitEvent:
+            return
+        }
+    }
+    
+    ... Existing Game Loop Code
+```
 
 
+## Step 9: Setting Up Keyboard Input
+
+SDL provides many different ways to get keyboard input. One of our favourites, is the GetKeyboardState() function. What this allows a programmer to do is get an array full of bytes which represent whether a keyboard button has been pushed. 
+In Go we can get the keyboard state by using the ```sdl.GetKeyboardState()``` function. This will return the array and allow us to check which button is currently down.
+
+Get the keyboard state before the game loop.
+
+```
+
+keyState := sdl.GetKeyboardState();
+
+// Game Loop
+
+for {
+    ...
+}
+
+```
+
+### Step 9: Setting up Color Changing!
+
+The final step is to be able to use keyboard input to change the color of the back buffer that we are drawing!
+
+Go to the piece of code where we setup the event loop. Define three variable which will represent which button has been pressed this frame. The names are pretty self explanitory.
 
 
+```
+Event Loop
+....
+
+bPressed := keyboardState[sdl.SCANCODE_B] != 0
+rPressed := keyboardState[sdl.SCANCODE_R] != 0
+gPressed := keyboardState[sdl.SCANCODE_G] != 0
+```
+
+Now just before we draw we have to set the color appropriately determined by the button press.
+
+```
+c := color{255}
+
+if bPressed {
+    c = color{0, 0, 255}
+}
+	
+if rPressed {
+	c = color{255, 0, 0}
+}
+	
+if gPressed {
+	c = color{0, 255, 0 }
+}
+
+// ... Pixel Setting Loop
+```
 
 
+## Conclusion:
 
+You now have a working software renderer backdrop blitter! This code can be expanded in numerous ways including:
 
+* Drawing Rectangles
 
+* Drawing Circles
 
+* Building Pong.
 
-
+Have fun and play around with it!

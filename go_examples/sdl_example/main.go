@@ -60,6 +60,7 @@ func main() {
 	pixelArraySize := WINDOW_WIDTH * WINDOW_HEIGHT * 4
 	pixels := make([]byte, pixelArraySize)
 
+	// Get Keyboard State
 	keyboardState := sdl.GetKeyboardState()
 
 	for {
@@ -77,7 +78,6 @@ func main() {
 	rPressed := keyboardState[sdl.SCANCODE_R] != 0
 	gPressed := keyboardState[sdl.SCANCODE_G] != 0
 
-	// Get Keyboard State
 	c := color{255, 255, 255}
 
 	if bPressed {
@@ -101,8 +101,6 @@ func main() {
 	texture.Update(nil, pixels, WINDOW_WIDTH * PITCH)
 	renderer.Copy(texture, nil, nil)
 	renderer.Present()
-
-
 
 	sdl.Delay(16)
 	}
